@@ -1,6 +1,8 @@
 using System;
+using FastkartMPA201.Abstraction;
 using FastkartMPA201.Contexts;
 using FastkartMPA201.Models;
+using FastkartMPA201.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +31,7 @@ namespace FastkartMPA201
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+            builder.Services.AddScoped<IEmailService, EmailService>();
 
 
             var app = builder.Build();

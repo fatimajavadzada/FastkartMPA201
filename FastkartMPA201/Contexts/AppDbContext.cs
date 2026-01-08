@@ -1,5 +1,4 @@
-﻿using Azure;
-using FastkartMPA201.Models;
+﻿using FastkartMPA201.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
