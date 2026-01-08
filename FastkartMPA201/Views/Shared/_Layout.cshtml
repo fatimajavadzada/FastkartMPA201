@@ -317,18 +317,28 @@
 
 										<div class="onhover-div onhover-div-login">
 											<ul class="user-box-name">
-												<li class="product-box-contain">
-													<i></i>
-													<a asp-controller="Account" asp-action="Login">Log In</a>
-												</li>
-
-												<li class="product-box-contain">
-													<a asp-controller="Account" asp-action="Register">Register</a>
-												</li>
-
-												<li class="product-box-contain">
-													<a href="forgot.html">Forgot Password</a>
-												</li>
+												@if (User.Identity.IsAuthenticated)
+												{
+													<li>
+														<a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
+													</li>
+													if (User.IsInRole("Admin"))
+													{
+														<li>
+															<a class="dropdown-item" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Panel</a>
+														</li>
+													}
+													<li>
+														<a class="dropdown-item" asp-controller="Account" asp-action="Logout">Logout</a>
+													</li>
+												}
+												else
+												{
+													<li>
+														<a class="dropdown-item" asp-action="Login" asp-controller="Account">Login</a>
+														<a class="dropdown-item" asp-action="Register" asp-controller="Account">Register</a>
+													</li>
+												}
 											</ul>
 										</div>
 									</li>

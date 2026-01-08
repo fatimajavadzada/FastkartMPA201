@@ -63,7 +63,6 @@ namespace FastkartMPA201.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
         public IActionResult Login()
         {
             return View();
@@ -104,7 +103,6 @@ namespace FastkartMPA201.Controllers
 
             return RedirectToAction(nameof(Login));
         }
-
 
         private async Task SendConfirmationEmail(AppUser user)
         {
@@ -274,8 +272,5 @@ namespace FastkartMPA201.Controllers
             await _signInManager.SignInAsync(user, false);
             return RedirectToAction("Index", "Home");
         }
-
-
-
     }
 }
