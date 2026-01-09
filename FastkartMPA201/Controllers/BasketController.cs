@@ -1,4 +1,5 @@
-﻿using FastkartMPA201.Contexts;
+﻿using System.Threading.Tasks;
+using FastkartMPA201.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +13,23 @@ namespace FastkartMPA201.Controllers
             return View(basketItems);
         }
 
-        public async Task<IActionResult> EmptyBasket()
+        public async Task<IActionResult> DeleteItemFromBasket(int id)
+        {
+            var basketItem = await _context.BasketItems.FindAsync(id);
+
+            if (basketItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.BasketItems.Remove(basketItem);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
+
+        public async Task<IActionResult> DeleteAllItemsFromBasket()
         {
             var basketItems = await _context.BasketItems.ToListAsync();
             foreach (var basketItem in basketItems)
@@ -21,7 +38,6 @@ namespace FastkartMPA201.Controllers
             }
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
-
         }
     }
 }

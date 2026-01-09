@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FastkartMPA201")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4a0cc074e70149980e606dc9e28f4498d2e8fbd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ed3d5439dbb34053504b0e421bc2f4c79867fcc")]
 [assembly: System.Reflection.AssemblyProductAttribute("FastkartMPA201")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FastkartMPA201")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
